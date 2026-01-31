@@ -1,11 +1,20 @@
 const form = document.querySelector("#imc-form");
+const inputs = form.querySelectorAll("input");
 const resultImcContainer = document.querySelector("#imc-result");
 const resultImc = document.querySelector("#result");
 const resultComplement = document.querySelector("#result-complement");
 const resultDescribe = document.querySelector("#result-describe");
+const errorMessage = document.querySelector(".error-message");
+
+[...inputs].forEach((input) => input.addEventListener("change", validateInput));
+
+form.addEventListener("submit", calculateIMC);
 
 function calculateIMC(event) {
   event.preventDefault();
+  if ([...inputs].some((input) => input.classList.contains("error"))) {
+    return;
+  }
   const weight = parseFloat(document.querySelector("#weight").value);
   const height = parseFloat(document.querySelector("#height").value);
   const imc = weight / height ** 2;
@@ -28,4 +37,20 @@ function calculateIMC(event) {
       "Atenção ! Você está com um peso abaixo do normal, indicando magreza.";
   }
 }
-form.addEventListener("submit", calculateIMC);
+
+function validateInput(event) {
+  event.target.value === "0"
+    ? showErrorMessage("Valor inválido", event.target.closest(".input-wrapper"))
+    : removeErrorMessage(event.target);
+}
+
+function showErrorMessage(message, element) {
+  element.firstElementChild.classList.add("error");
+  errorMessage.innerText = message;
+  element.appendChild(errorMessage);
+}
+
+function removeErrorMessage(element) {
+  element.classList.remove("error");
+  errorMessage.innerText = "";
+}

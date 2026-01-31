@@ -1,55 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IMC Tracker</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="./assets/icons/favicon.svg" type="image/x-icon">
+  </head>
 
-<body>
+  <body>
     <main id="imc-container">
-        <picture id="imc-decor">
-            <img src="./assets/img/decoration.svg">
-        </picture>
-        <div id="imc-calculator">
-            <form id="imc-form">
-                <h1>Calculadora de IMC</h1>
-                <label for="weight">Peso em Kg:</label>
-                <div class="input-box">
-                    <span><img src="./assets/icons/weight-icon.svg"></span>
-                    <input type="number" step="0.1" name="weight" id="weight" placeholder="Ex: 72,5">
-                    <span>kg</span>
-                </div>
-                <label for="height">Altura em metros:</label>
-                <div class="input-box">
-                    <span><img src="./assets/icons/height-icon.svg"></span>
-                    <input type="number" step="0.01" name="height" id="height" placeholder="Ex: 1,70">
-                    <span>m</span>
-                </div>
-                <button>Calcular</button>
-            </form>
-            <div id="imc-result">
-                <p id="result"></p>
-                <p id="result-complement">Seu IMC</p>
-                <p id="result-describe"></p>
+      <picture id="imc-decor">
+        <img src="./assets/img/decoration.svg" />
+      </picture>
+      <div id="imc-calculator">
+        <form id="imc-form">
+          <h1>Calculadora de IMC</h1>
+          <label for="weight">Peso em Kg:</label>
+          <div class="input-box">
+            <span><img src="./assets/icons/weight-icon.svg" /></span>
+            <div class="input-wrapper">
+                <input
+                  type="number"
+                  step="0.1"
+                  name="weight"
+                  id="weight"
+                  placeholder="Ex: 72,5"
+                  required
+                />
             </div>
-            <a href="https://www.tuasaude.com/imc/" rel="external" target="_blank">Mais informações sobre o IMC <span><img src="./assets/icons/external-link-icon.svg"></span></a>
+            <span>kg</span>
+          </div>
+          <label for="height">Altura em metros:</label>
+          <div class="input-box">
+            <span><img src="./assets/icons/height-icon.svg" /></span>
+            <div class="input-wrapper">
+              <input
+                type="number"
+                step="0.01"
+                name="height"
+                id="height"
+                placeholder="Ex: 1,70"
+                required
+              />
+            </div>
+            <span>m</span>
+          </div>
+          <button>Calcular</button>
+        </form>
+        <div id="imc-result">
+          <p id="result"></p>
+          <p id="result-complement">Seu IMC</p>
+          <p id="result-describe"></p>
         </div>
+        <a href="https://www.tuasaude.com/imc/" rel="external" target="_blank"
+          >Mais informações sobre o IMC
+          <span><img src="./assets/icons/external-link-icon.svg" /></span
+        ></a>
+      </div>
     </main>
     <footer>
-        <p>Desenvolvido por Adrian Silva
-            <a href="https://github.com/grsadrian" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-        </p>
+      <p>
+        Desenvolvido por Adrian Silva
+        <a href="https://github.com/grsadrian" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </p>
     </footer>
+    <p class="error-message" style="color: #ff4f4f"></p>
     <script src="scripts/script.js"></script>
-</body>
-
+  </body>
 </html>
